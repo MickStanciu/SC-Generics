@@ -6,8 +6,11 @@ type Either[T any] struct {
 }
 
 func (e Either[T]) Bind(f func(T) Either[T]) Either[T] {
+	// if we have an error, we return
 	if e.Error != nil {
 		return e
 	}
+
+	// otherwise we transform
 	return f(e.Value)
 }
