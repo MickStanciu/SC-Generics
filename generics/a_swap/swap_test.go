@@ -1,14 +1,14 @@
-package generics_test
+package a_swap_test
 
 import (
-	"github.com/MickStanciu/SC-Generics/generics"
+	"github.com/MickStanciu/SC-Generics/generics/a_swap"
 	"github.com/stretchr/testify/assert"
 	"reflect"
 	"testing"
 )
 
 func TestSwap_BothIntegers(t *testing.T) {
-	x1, x2 := generics.Swap(4, 5)
+	x1, x2 := a_swap.Swap(4, 5)
 	assert.EqualValues(t, 5, x1)
 	assert.EqualValues(t, 4, x2)
 }
@@ -22,7 +22,7 @@ func TestSwap_DifferentTypes(t *testing.T) {
 		age: 41,
 	}
 
-	h, s := generics.Swap("Yo", george)
+	h, s := a_swap.Swap("Yo", george)
 	assert.EqualValues(t, reflect.TypeOf(george), reflect.TypeOf(h))
 	assert.EqualValues(t, 41, h.age)
 	assert.EqualValues(t, s, "Yo")
